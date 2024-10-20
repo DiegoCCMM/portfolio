@@ -1,0 +1,113 @@
+Texec = 1.388
+
+ServidorSec:
+	primer cliente -> 1.554
+	segundo cliente -> 2.996 !! inflinge el QoS
+	
+	2º
+	1.516
+	2.95
+	
+	3º
+	1.539
+	2.81
+	
+	4º
+	1.56
+	3.00
+	
+ServidorConcurrente:
+	primer cliente -> 1.516109654s
+	2 ->1.523908225s
+	3 clientes 1.571977487s
+	4 clientes 1.605823675s
+	5 clientes 1.986333901s
+	6 clientes 2.40633545s
+	7 -> 2.810905583s QoS fault a partir del 3º cliente, reciben a > 2,7 s
+	
+	observaciones, todos los clientes reciben a prácticamente la misma velocidad, aunque hay diferencias sustanciales por el orden
+	
+ServidorPoolWorkers
+	NO ESCALABILIDAD luego el número de goWorkers han de pode aguantar la carga de trabajo
+	
+	6 clientes con 6 go workers ->2.424832214s
+	5-5 -> 2.027726786s
+	4-4 -> 1.6
+	
+MASTER WORKER
+	
+	8-8 -> 1.57 - 1.62
+	6-6 -> 1.57 - 1.63
+	
+	cuando el master no soporta la carga -> 3.18 QoS
+	
+	
+scp -P 22 file server:/path
+ssh remote_host "ls > /tmp/file_on_remote_host.txt"
+
+
+Cliente envia {idtarea, n}
+Servidor envía int[]
+
+libreria gob
+
+Encoder / Decoder
+
+
+Cliente.go
+
+for{
+	go client -> conectar con el servidor, 
+						enviar petición,
+						esperar respuesta,
+						informar Tcliente
+	time.Sleep(n*seconds) -> n es la carga de trabajo
+	}
+obtener el Texec de forma aislada en el servidor	
+	
+Gráfica con Tcliente en las y y en las x clientes
+
+
+
+
+PREGUNTAS
+
+¿Como se usa la libreria gob, que explicaste en la teoría?
+network del ejemplo -> connection
+
+¿Como me conecto a las máquinas remotas?
+
+155.210.154.[193 194 195]
+
+export PATH=$PATH:/usr/local/go/bin
+ssh a738712@155.210.154.193
+ scp(1) -P 2222 file server:/path 
+ 
+¿Cuando te presentamos o sólo es la memoria?
+
+en la siguiente sesión
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+

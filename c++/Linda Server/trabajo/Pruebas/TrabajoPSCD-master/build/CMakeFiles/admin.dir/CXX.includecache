@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/Socket.hpp
+cstring
+-
+strings.h
+-
+iostream
+-
+unistd.h
+-
+
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/Tuplas.hpp
+iostream
+-
+string
+-
+vector
+-
+
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/admin.cpp
+iostream
+-
+Socket.hpp
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/Socket.hpp
+Tuplas.hpp
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/Tuplas.hpp
+string
+-
+thread
+-
+

@@ -1,0 +1,1 @@
+/usr/bin/c++  -I/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master -pthread -g   CMakeFiles/clienteprobatinas.dir/Socket.cpp.o CMakeFiles/clienteprobatinas.dir/cliente_probatinas.cpp.o CMakeFiles/clienteprobatinas.dir/controlTuplas.cpp.o CMakeFiles/clienteprobatinas.dir/LindaDriver.cpp.o CMakeFiles/clienteprobatinas.dir/Tuplas.cpp.o  -o clienteprobatinas 

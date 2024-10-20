@@ -1,0 +1,5 @@
+- En P4demo.m podéis ver cómo cargar los datos de MNIST.
+
+- verConfusiones.m dibuja algunos ejemplos de confusión, el primero que encuentra de cada tipo, para ayudaros a interpretar por qué puede estar fallando vuestro clasificador.
+
+- En Matlab tenéis las funciones confusionmat y confusionchart que podéis utilizar para calcular y mostrar la matriz de confusión. Saca la matriz en el mismo orden que verConfusiones.m

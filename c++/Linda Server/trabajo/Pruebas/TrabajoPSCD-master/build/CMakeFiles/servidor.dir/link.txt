@@ -1,0 +1,1 @@
+/usr/bin/c++  -I/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master -pthread   CMakeFiles/servidor.dir/Socket.cpp.o CMakeFiles/servidor.dir/servidor.cpp.o CMakeFiles/servidor.dir/controlTuplas.cpp.o CMakeFiles/servidor.dir/Tuplas.cpp.o  -o servidor 

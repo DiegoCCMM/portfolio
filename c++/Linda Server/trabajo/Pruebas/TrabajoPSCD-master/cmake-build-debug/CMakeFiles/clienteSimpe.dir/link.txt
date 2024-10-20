@@ -1,0 +1,1 @@
+/usr/bin/c++  -I/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master -pthread -g   CMakeFiles/clienteSimpe.dir/Socket.cpp.o CMakeFiles/clienteSimpe.dir/clienteSimple.cpp.o CMakeFiles/clienteSimpe.dir/controlTuplas.cpp.o CMakeFiles/clienteSimpe.dir/LindaDriver.cpp.o CMakeFiles/clienteSimpe.dir/Tuplas.cpp.o  -o clienteSimpe 

@@ -1,0 +1,67 @@
+ramificación de busqueda generada.
+
+Cada nodo expande el mismo número de nodos, así que sabiendo la profundidad habia que calcular el calculo de ramificacióne efectiva.
+
+En el peor caso, A*, era como coste uniforme. Para medir bien A* hay que sabe que realmente se mide la heuristica que sigue A*
+
+Probaremos BFS (anchura), IDS (iterativo), A* con dos heuristicas una de manhatan y otra de fichas descolocadas.
+
+Son experimentos aleatorios DAN RESULTADOS DISTINTOS PERO MÁS O MENOS ESE ORDEN DE MAGNITUD
+
+Método de BISECCIÓN
+
+FACTOR DE RAMIFICACIÓN MÁS PEQUEÑO -> AJUSTA MEJOR LA SOLUCIÓN
+
+IDS LLEGA HASTA 10 PORQUE LE CUESTA DEMASIADO A PARTIR DE ESOS NIVELES
+
+HAY QUE HACER 100 EXPERIMENTOS Y HACER LA MEDIA DE ESOS RESULTADOS
+
+****DONDE TOCAR EL CÓDIGO PARA SACAR TODO ESTO:*****
+
+aima.gui.search.8puzzledemo
+CENTRARSE EN EL ASTARDEMO CON GRAFO
+
+aima.core.search.framework -> implementación de los algoritmos
+NodeExpander anadir una cadena METRIC NODES EXPANDED y en clearInstrumentation lo pones a 0 y NODOS GENERATED también en expandNode copiar
+
+Todos heredan de NodeExpander, así, todos se cambian y nos dan lo que queremos
+
+
+Hay que trabajar con IDS -> modificar en aima.core.search.informed -> IDS como en las fotos
+
+
+
+en 8puzzlegoaltest
+
+
+HACER UNA COPIA DE LAS MISPLACED 2 Y MANHATTAN 2 CON LO DE LA FOTO DE LAS HEURISTICAS
+
+
+
+PROFUNDIDAD 100
+
+
+MIRO SI LA PROFUNDIDAD DE LA SOLUCIÓN DE A* MANHATTAN ES LA PROFUNDIDAD QUE YO QUIERO
+
+
+1-4 PORQUE LA MAYOR RAMIFICACIÓN ES 4
+
+
+Cabecera 
+
+for(int i = 1; i<91; i++) System.out.print("-"); System.out.println();
+		System.out.format("||    || %20s%17s || %19s%19s||\n","Nodos Generados", " ","b*", " ");	
+		for(int i = 1; i<91; i++) System.out.print("-"); System.out.println();
+System.out.format("|| %3s||","d");	
+		System.out.format(" %6s  |", "BFS");
+		System.out.format(" %6s  |", "IDS");
+		System.out.format(" %6s  |", "A*h(1)");
+		System.out.format(" %6s  ||", "A*h(2)");
+		System.out.format(" %6s  |", "BFS");
+		System.out.format(" %6s  |", "IDS");
+		System.out.format(" %6s  |", "A*h(1)");
+		System.out.format(" %6s  ||\n", "A*h(2)");
+for(int i = 1; i<91; i++) System.out.print("-"); System.out.println();
+		for(int i = 1; i<91; i++) System.out.print("-"); System.out.println();
+
+

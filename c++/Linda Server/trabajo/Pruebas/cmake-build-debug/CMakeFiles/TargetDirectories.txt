@@ -1,0 +1,3 @@
+/home/diego/Desktop/PSCD/trabajo/Pruebas/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/diego/Desktop/PSCD/trabajo/Pruebas/cmake-build-debug/CMakeFiles/Pruebas.dir
+/home/diego/Desktop/PSCD/trabajo/Pruebas/cmake-build-debug/CMakeFiles/edit_cache.dir

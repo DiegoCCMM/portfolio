@@ -1,0 +1,5 @@
+Hay que normalizar a la hora de hacer la regularización
+
+entrena con todos los datos y calcula el error RMSE con los datos de test
+
+Significa entrenar con todos los datos (no hacer kfold a los datos) y el error de test se refiere a hacer RMSE con el error del anterior entrenamiento junto a xtest e ytest

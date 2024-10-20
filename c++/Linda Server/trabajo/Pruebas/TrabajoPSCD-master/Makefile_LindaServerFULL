@@ -1,0 +1,96 @@
+#*****************************************************************
+# File:   Makefile_p5_e1
+# Author: PSCD-Unizar
+# Date:   octubre 2018
+# Coms:   Ejemplo de Makefile para la práctica 5 de PSCD
+#         "make -f Makefile_p5_e1" construye todos los ejecutables
+#         "make -f Makefile_p5_e1 Cliente" construye "Cliente"
+#         ....
+#         Es necesario descomentar la línea 28 para poder compilar en hendrix
+#*****************************************************************
+
+#---------------------------------------------------------
+CC=g++
+
+CLIENT=clienteprueba
+MULTI_SERVER=LindaServer
+SERVER=servidor
+CT = controlTuplas
+SOCKET_DIR=Socket
+SOCKET=${SOCKET_DIR}/Socket
+CA = LindaDriver
+TU = Tuplas
+CL = ControlLS
+
+CPPFLAGS=-I. -I${SOCKET_DIR} -O2 -std=c++11 -lsockets # Flags compilacion
+LDFLAGS=-pthread # Flags linkado threads
+
+all:  ${MULTI_SERVER} ${CLIENT} ${SERVER} 
+
+#----------------------------------------------------------------------------
+#Para gestionar opciones de compilación según la máquina: hendrix tiene sus manías
+#Descomentar la siguiente línea para compilar en hendrix
+#SOCKETSFLAGS=-lsocket -lnsl
+#-----------------------------------------------------------
+# CLIENTE
+# Compilacion
+${CLIENT}.o: ${CLIENT}.cpp ${CA}.hpp ${TU}.hpp
+	${CC} -c ${CPPFLAGS} ${CLIENT}.cpp
+
+# Linkado
+${CLIENT}: ${SOCKET}.o ${CLIENT}.o  ${CA}.o ${TU}.o
+	${CC} ${LDFLAGS} ${SOCKET}.o ${CLIENT}.o -o ${CLIENT} ${SOCKETSFLAGS} ${CA}.o ${TU}.o
+
+#-----------------------------------------------------------
+# LINDA SERVER
+# Compilacion
+${MULTI_SERVER}.o: ${MULTI_SERVER}.cpp ${TU}.hpp ${CL}.hpp
+	${CC} -c ${CPPFLAGS} ${MULTI_SERVER}.cpp
+
+# Linkado
+${MULTI_SERVER}: ${SOCKET}.o ${MULTI_SERVER}.o ${TU}.o ${CL}.o
+	${CC} ${LDFLAGS} ${SOCKET}.o ${MULTI_SERVER}.o -o ${MULTI_SERVER} ${SOCKETSFLAGS} ${TU}.o ${CL}.o
+#-----------------------------------------------------------
+# SERVIDOR
+# Compilacion
+${SERVER}.o: ${SERVER}.cpp ${CT}.hpp ${TU}.hpp
+	${CC} -c ${CPPFLAGS} ${SERVER}.cpp
+
+# Linkado
+${SERVER}: ${SOCKET}.o ${SERVER}.o ${CT}.o ${TU}.o
+	${CC} ${LDFLAGS} ${SOCKET}.o ${SERVER}.o -o ${SERVER} ${SOCKETSFLAGS} ${CT}.o ${TU}.o
+#-----------------------------------------------------------
+# SOCKETS
+# Compilacion libreria de Sockets
+${SOCKET}.o: ${SOCKET}.hpp ${SOCKET}.cpp
+	${CC} -c ${CPPFLAGS} ${SOCKET}.cpp -o ${SOCKET}.o
+#-----------------------------------------------------------
+# LINDA DRIVER
+${CA}.o: ${CA}.cpp ${CA}.hpp 
+	${CC} -c ${CA}.cpp ${CPPFLAGS}
+#-----------------------------------------------------------
+# TAD TUPLAS
+${TU}.o: ${TU}.cpp ${TU}.hpp 
+	${CC} -c ${TU}.cpp ${CPPFLAGS}
+#-----------------------------------------------------------
+# MONITOR LINDASERVER
+${CL}.o: ${CL}.cpp ${CL}.hpp 
+	${CC} -c ${CL}.cpp ${CPPFLAGS}
+#-----------------------------------------------------------
+# MONITOR MEMORIA TUPLAS
+${CT}.o: ${CT}.cpp ${CT}.hpp ${TU}.hpp
+	${CC} -c ${CT}.cpp ${CPPFLAGS}
+# LIMPIEZA
+clean:
+	$(RM) ${SOCKET}.o
+	$(RM) ${CLIENT} ${CLIENT}.o
+	$(RM) ${MULTI_SERVER} ${MULTI_SERVER}.o
+	$(RM) ${SERVER} ${SERVER}.o
+	$(RM) ${CT}.o
+	$(RM) ${CA}.o
+	$(RM) ${CL}.o
+	$(RM) ${TU}.o
+
+
+
+

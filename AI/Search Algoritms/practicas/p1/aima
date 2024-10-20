@@ -1,0 +1,30 @@
+trabajaremos con aima core y el aima gui
+
+gui - demo search - 8 puzzle
+
+Ejecutar
+
+getActionsFunction -> devuelve las acciones para ese estado
+
+getResultFunction -> lo hace hacia el resultado
+
+searchAgent es donde se ejecuta la búsqueda
+
+Instrumentation son los datos/métricas
+
+Propone el profesor.
+
+Copy paste la demo con ocho puzzle demo práctica 1
+
+Esta clase la empezaremos a modificar.
+
+hacer una función con los parametros de la foto
+
+
+EightPuzzlePract1.java y CanibalBoard.java y CanibalFunctionFactory.java y CanibalGoalTest.java y CanibalPract.java(main)
+
+Opcional (CanibalStepCostunction.java, y uso en CU, ejemplo en CanibalPract.java)
+
+Opcional (FichasPract.java, FichasBoard.java, FichasFunctionFactory, FichasGoalTest)
+
+y la MEMORIA!!!! Todo en un zip

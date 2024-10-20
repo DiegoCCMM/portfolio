@@ -1,0 +1,11 @@
+$HOME/.bashrc para hacer los exports permanentes
+
+en hendrix
+export PATH=$PATH:/usr/local/go/bin
+
+
+el paso de archivos
+scp(1) -P 2222 file server:/path 
+
+server será la ip de la máquina de hendrix.
+path será la carpeta desde ~

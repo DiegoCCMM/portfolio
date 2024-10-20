@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.10.11
+Created-By: 1.8.0_312-b10 (Oracle Corporation)
+Main-Class: traductor/adac_4
+Class-Path: traductor/adac_4.jar
+

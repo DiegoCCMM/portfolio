@@ -1,0 +1,51 @@
+#*****************************************************************
+# Coms:   Es necesario descomentar la línea 22 para poder compilar en hendrix
+#*****************************************************************
+
+#---------------------------------------------------------
+RM = /bin/rm -f  # para limpiar
+CC=g++
+
+CT = controlTuplas
+TU = Tuplas
+SERVER=servidor
+SOCKET_DIR=Socket
+SOCKET=${SOCKET_DIR}/Socket
+
+CPPFLAGS=-I. -I${SOCKET_DIR} -O2 -std=c++11 -lsockets # Flags compilacion
+LDFLAGS=-pthread # Flags linkado threads
+
+all: ${SERVER} 
+#----------------------------------------------------------------------------
+#Para gestionar opciones de compilación según la máquina: hendrix tiene sus manías
+#Descomentar la siguiente línea para compilar en hendrix
+SOCKETSFLAGS=-lsocket -lnsl
+#-----------------------------------------------------------
+# SERVIDOR
+# Compilacion
+${SERVER}.o: ${SERVER}.cpp ${CT}.hpp ${TU}.hpp
+	${CC} -c ${CPPFLAGS} ${SERVER}.cpp
+
+# Linkado
+${SERVER}: ${SOCKET}.o ${SERVER}.o ${CT}.o ${TU}.o
+	${CC} ${LDFLAGS} ${SOCKET}.o ${SERVER}.o -o ${SERVER} ${SOCKETSFLAGS} ${CT}.o ${TU}.o
+#-----------------------------------------------------------
+# SOCKETS
+# Compilacion libreria de Sockets
+${SOCKET}.o: ${SOCKET}.hpp ${SOCKET}.cpp
+	${CC} -c ${CPPFLAGS} ${SOCKET}.cpp -o ${SOCKET}.o
+#-----------------------------------------------------------
+# MONITOR MEMORIA TUPLAS
+${CT}.o: ${CT}.cpp ${CT}.hpp ${TU}.hpp
+	${CC} -c ${CT}.cpp ${CPPFLAGS}
+#-----------------------------------------------------------
+# TUPLAS
+${TU}.o: ${TU}.cpp ${TU}.hpp 
+	${CC} -c ${TU}.cpp ${CPPFLAGS}
+#-----------------------------------------------------------
+# LIMPIEZA
+clean:
+	$(RM) ${SOCKET}.o
+	$(RM) ${SERVER} ${SERVER}.o
+	$(RM) ${TU}.o
+	$(RM) ${CT}.o

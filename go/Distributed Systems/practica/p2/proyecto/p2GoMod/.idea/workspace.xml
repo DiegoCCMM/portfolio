@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="af2d0d39-53c8-4015-be98-673b4fadfbbf" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="$USER_HOME$/sdk/go1.15.2" />
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1jTOlCBxGubu2K62MEd9BVdT3ef" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go Application" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/reader.go" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build reader.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="p2GoMod" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="2 3" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/reader.go" />
+      <package value="p2GoMod" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build reader.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="af2d0d39-53c8-4015-be98-673b4fadfbbf" name="Default Changelist" comment="" />
+      <created>1603824774898</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603824774898</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="141" y="58" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603996736872">
+      <screen x="0" y="32" width="1366" height="736" />
+    </state>
+    <state x="141" y="58" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.32.1366.736@0.32.1366.736" timestamp="1603996736872" />
+    <state x="402" y="191" width="551" height="415" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603996726635">
+      <screen x="0" y="32" width="1366" height="736" />
+    </state>
+    <state x="402" y="191" width="551" height="415" key="#com.intellij.fileTypes.FileTypeChooser/0.32.1366.736@0.32.1366.736" timestamp="1603996726635" />
+    <state x="466" y="158" width="424" height="482" key="FileChooserDialogImpl" timestamp="1604419882060">
+      <screen x="0" y="32" width="1366" height="736" />
+    </state>
+    <state x="466" y="158" width="424" height="482" key="FileChooserDialogImpl/0.32.1366.736@0.32.1366.736" timestamp="1604419882060" />
+    <state width="1318" height="165" key="GridCell.Tab.0.bottom" timestamp="1604011222323">
+      <screen x="0" y="32" width="1366" height="736" />
+    </state>
+    <state width="1318" height="165" key="GridCell.Tab.0.bottom/0.32.1366.736@0.32.1366.736" timestamp="1604011222323" />
+    <state width="1318" height="165" key="GridCell.Tab.0.center" timestamp="1604011222323">
+      <screen x="0" y="32" width="1366" height="736" />
+    </state>
+    <state width="1318" height="165" key="GridCell.Tab.0.center/0.32.1366.736@0.32.1366.736" timestamp="1604011222323" />
+    <state width="1318" height="165" key="GridCell.Tab.0.left" timestamp="1604011222322">
+      <screen x="0" y="32" width="1366" height="736" />
+    </state>
+    <state width="1318" height="165" key="GridCell.Tab.0.left/0.32.1366.736@0.32.1366.736" timestamp="1604011222322" />
+    <state width="1318" height="165" key="GridCell.Tab.0.right" timestamp="1604011222323">
+      <screen x="0" y="32" width="1366" height="736" />
+    </state>
+    <state width="1318" height="165" key="GridCell.Tab.0.right/0.32.1366.736@0.32.1366.736" timestamp="1604011222323" />
+    <state x="0" y="32" width="616" height="736" key="find.popup" timestamp="1604003678122">
+      <screen x="0" y="32" width="1366" height="736" />
+    </state>
+    <state x="0" y="32" width="616" height="736" key="find.popup/0.32.1366.736@0.32.1366.736" timestamp="1604003678122" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603997348193">
+      <screen x="0" y="32" width="1366" height="736" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.32.1366.736@0.32.1366.736" timestamp="1603997348193" />
+    <state x="408" y="220" width="540" height="357" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1604044289466">
+      <screen x="0" y="32" width="1366" height="736" />
+    </state>
+    <state x="408" y="220" width="540" height="357" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.32.1366.736@0.32.1366.736" timestamp="1604044289466" />
+  </component>
+</project>

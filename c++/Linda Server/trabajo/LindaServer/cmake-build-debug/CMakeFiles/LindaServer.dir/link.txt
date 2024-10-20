@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/LindaServer.dir/ls.cpp.o CMakeFiles/LindaServer.dir/Tuplas.cpp.o CMakeFiles/LindaServer.dir/ControlLS.cpp.o CMakeFiles/LindaServer.dir/Socket.cpp.o CMakeFiles/LindaServer.dir/ls2.cpp.o  -o LindaServer 

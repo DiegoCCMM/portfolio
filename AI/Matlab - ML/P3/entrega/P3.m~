@@ -1,0 +1,183 @@
+%% Based on exercise 2 of Machine Learning Online Class by Andrew Ng 
+
+clear ; close all;
+
+%% Load Data del primer apartado
+%  The first two columns contains the exam scores and the third column
+%  contains the label.
+
+data = load('exam_data.txt');
+y = data(:, 3);
+N = length(y);
+X = data(:, [1, 2]); 
+
+plotData(X, y);
+xlabel('Exam 1 score')
+ylabel('Exam 2 score')
+legend('Admitted', 'Not admitted')
+
+
+%% Calcula una Solucion con costelogistico
+X = [ones(N,1) X];
+theta = transpose([1,1,1]);
+[ Xcv, ycv, Xtr, ytr] = particion(2, 5, X, y);
+options.display = 'final'; %otros: 'iter' , 'none‘
+options.method = 'newton'; %por defecto: 'lbfgs'
+theta = minFunc(@CosteLogistico, theta, options, Xtr, ytr);
+
+
+%% sacamos la hipótesis y la utilizamos
+
+htr = 1./(1+exp(-(Xtr*theta))); %LA hipotesis CON LA MEJOR THETA sobre todos los datos
+yhtr = ones(size(htr));
+
+hcv = 1./(1+exp(-(Xcv*theta)));
+yhcv = ones(size(hcv));
+
+for i=1:80
+   if htr(i) < 0.5
+       yhtr(i) = 0; %predicción para el train
+   end
+end
+
+for i=1:20
+   if  hcv(i) < 0.5
+       yhcv(i) = 0; %prediccion para el test
+   end
+end
+
+%% calculamos el error
+
+errorescv=yhcv~=ycv;
+
+errorestr=yhtr~=ytr;
+
+Tetr=sum(errorestr)/80  %error del train
+
+Tecv=sum(errorescv)/20  %error del test
+
+
+
+%% Probabilidad de ser admitido con un 45 y el resto de valores
+
+primEx = 45*ones(101,1);
+segEx = transpose(0:100);
+Xpreg = [ones(101,1) primEx segEx];
+
+hpreg = 1./(1+exp(-(Xpreg*theta))); %LA hipotesis CON LA MEJOR THETA sobre todos los datos
+yhpreg = ones(size(hpreg));
+
+for i=1:101
+   if hpreg(i) < 0.5
+       yhpreg(i) = 0;
+   end
+end
+
+plotDecisionBoundary(theta, Xpreg, yhpreg);
+xlabel('Exam 1 score');
+ylabel('Exam 2 score');
+
+%% segundo apartado %%
+
+clear ; close all;
+
+%% Load and Plot Data
+%  The first two columns contains the X values and the third column
+%  contains the label (y).
+
+data = load('mchip_data.txt');
+X = data(:, [1, 2]); 
+y = data(:, 3);
+N = length(y);
+p = randperm(N); %reordena aleatoriamente los datos
+X = X(p,:);
+y = y(p);
+
+plotData(X, y);
+xlabel('Microchip Test 1')
+ylabel('Microchip Test 2')
+legend('y = 1', 'y = 0')
+
+[ Xcv, ycv, Xtr, ytr] = particion(2, 5, X, y);
+
+X = mapFeature(X(:,1), X(:,2));
+
+%% calculo del mejor lambda
+
+[best_size, listError_train, listError_cv] = KfoldCrossValidation(20,X,y);
+
+%% uso el mejor lambda para calcular la hipotesis
+
+options.display = 'final'; %otros: 'iter' , 'none‘
+options.method = 'newton'; %por defecto: 'lbfgs'
+theta = minFunc(@CosteLogReg, theta, options, Xtr, ytr, best_size);            %minfunc
+        
+htr = 1./(1+exp(-(Xtr*theta))); %LA hipotesis CON LA MEJOR THETA sobre todos los datos
+yhtr = ones(size(htr));
+
+hcv = 1./(1+exp(-(Xcv*theta)));
+yhcv = ones(size(hcv));
+        
+for i=1:size(htr,1)
+   if htr(i) < 0.5
+     yhtr(i) = 0; %predicción para el train
+   end
+end
+
+for i=1:size(hcv,1)
+    if  hcv(i) < 0.5
+       yhcv(i) = 0; %prediccion para el test
+    end
+end
+
+%% calculamos el error
+
+errorescv=yhcv~=ycv;
+
+errorestr=yhtr~=ytr;
+
+Tetr=sum(errorestr)/size(yhtr,1)  %error del train
+
+Tecv=sum(errorescv)/size(yhcv,1) %error del test
+
+%% ahora lambda = 0
+theta = minFunc(@CosteLogReg, theta, options, Xtr, ytr, 0);            %minfunc
+        
+htr = 1./(1+exp(-(Xtr*theta))); %LA hipotesis CON LA MEJOR THETA sobre todos los datos
+yhtr0 = ones(size(htr));
+
+hcv = 1./(1+exp(-(Xcv*theta)));
+yhcv0 = ones(size(hcv));
+        
+for i=1:size(htr,1)
+   if htr(i) < 0.5
+     yhtr0(i) = 0; %predicción para el train
+   end
+end
+
+for i=1:size(hcv,1)
+    if  hcv(i) < 0.5
+       yhcv0(i) = 0; %prediccion para el test
+    end
+end
+%% calculamos el error
+
+errorescv=yhcv0~=ycv;
+
+errorestr=yhtr0~=ytr;
+
+Tetr0=sum(errorestr)/size(yhtr0,1)  %error del train
+
+Tecv0=sum(errorescv)/size(yhcv0,1) %error del test
+%% recall,f1,precision
+recall=[];
+precision=[];
+for i=1:10
+    recall = [recall,matrizDeConfusion(i,i)/matrizDeConfusion(i,11)];
+    precision = [precision,matrizDeConfusion(i,i)/matrizDeConfusion(11,i)];
+    recall = mean(recall);
+    precision = mean(precision);
+end
+recall
+precision
+f1=(2*(recall*precision))/(recall+precision);

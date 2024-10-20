@@ -1,0 +1,1 @@
+/usr/bin/c++  -I/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master -pthread -g   CMakeFiles/LindaServer.dir/Tuplas.cpp.o CMakeFiles/LindaServer.dir/ControlLS.cpp.o CMakeFiles/LindaServer.dir/LindaServer.cpp.o CMakeFiles/LindaServer.dir/Socket.cpp.o  -o LindaServer 

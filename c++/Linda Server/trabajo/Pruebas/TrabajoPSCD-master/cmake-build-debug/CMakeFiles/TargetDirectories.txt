@@ -1,0 +1,9 @@
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/cmake-build-debug/CMakeFiles/clienteprueba.dir
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/cmake-build-debug/CMakeFiles/clienteprobatinas.dir
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/cmake-build-debug/CMakeFiles/clienteSimpe.dir
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/cmake-build-debug/CMakeFiles/clienteCarga.dir
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/cmake-build-debug/CMakeFiles/admin.dir
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/cmake-build-debug/CMakeFiles/LindaServer.dir
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/diego/Desktop/PSCD/trabajo/Pruebas/TrabajoPSCD-master/cmake-build-debug/CMakeFiles/servidor.dir

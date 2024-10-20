@@ -1,0 +1,3 @@
+/home/diego/Desktop/PSCD/trabajo/LindaDriver/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/diego/Desktop/PSCD/trabajo/LindaDriver/cmake-build-debug/CMakeFiles/LindaDriver.dir
+/home/diego/Desktop/PSCD/trabajo/LindaDriver/cmake-build-debug/CMakeFiles/edit_cache.dir

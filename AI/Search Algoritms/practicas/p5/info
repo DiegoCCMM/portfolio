@@ -1,0 +1,7 @@
+validation accuracy una neurona -> 0.9	fallo en el 5, acierta 749 de 
+
+hay que realizar pruebas con
+
+Varias capas, distinto número de neuronas, distintas funciones de activación, distintas razones de terminación (early stopping, dropout, regularización (todo en p5_RN_Keras) y funciones de coste. Están enumeradas y remarcadas en el ppt.
+
+El objetivo es hacer una tabla y con todas las combinaciones, un P5.py con las mejores de cada combinación y saber explicar las pruebas

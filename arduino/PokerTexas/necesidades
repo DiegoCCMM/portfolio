@@ -1,0 +1,26 @@
+PRINCIPAL:
+
+El juego empieza con 10 monedas, el jugador hará una apuesta inicial.
+El display de texto mostrará las 5 cartas repartidas en mano.
+El jugador se podrá mover por el display horizontalmente con el joystick.
+Se podrán elegir las cartas que se quieren cambiar con el pulsador del joystick y se mostrará las elecciones.
+Se volverán a repartir las nuevas cartas teniendo en cuenta los descartes.
+Se comprobarán las multiples posibilidades en la mano del jugador.
+
+RESULTADOS
+
+En caso de no tener nada pero tener una figura K o A se devuelve el dinero.
+En caso de tener alguna combinación se aplica un multiplicador y se devuelve el dinero.
+En caso de no tener ni una figura K o A se pierde el dinero.
+
+Para los distintos casos habrá una música reproducida por el zumbador y/o el altavoz,
+siendo más feliz, más estable o más triste en función del resultado.
+La devolución de las monedas hará un sonido por cada moneda emparejado al sonido del resultado.
+
+SEGUIDAMENTE:
+Añadir un contricante con buena toma de decisiones para jugar contra el.
+En caso de ganar el jugador frente al contrincante se llevará las misma monedas.
+En caso de perder el jugador perderá la apuesta.
+En caso de empatar se decidirá a la carta más alta que forma el empate (K K > Q Q).
+Si el empate es total se devolverá la apuesta.
+

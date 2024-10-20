@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/clienteCarga.dir/clienteCarga.cpp.o  -o clienteCarga 

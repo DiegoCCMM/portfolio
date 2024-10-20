@@ -1,0 +1,18 @@
+MyProcess 3 {"MyProcess 3":1}
+Initialization Complete
+MyProcess 3 {"MyProcess 3":2}
+Sending Message
+MyProcess 2 {"MyProcess 2":2}
+Sending Message
+MyProcess 2 {"MyProcess 3":2, "MyProcess 2":3}
+Receiving Message
+MyProcess 3 {"MyProcess 3":3, "MyProcess 2":2}
+Receiving Message
+MyProcess 3 {"MyProcess 3":4, "MyProcess 2":2}
+Sending Message
+MyProcess 2 {"MyProcess 2":4, "MyProcess 3":4}
+Receiving Message
+MyProcess 2 {"MyProcess 2":5, "MyProcess 3":4}
+Sending Message
+MyProcess 3 {"MyProcess 3":5, "MyProcess 2":5}
+Receiving Message

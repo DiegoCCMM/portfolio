@@ -1,0 +1,12 @@
+traducir el algoritmo de ricart-agrawala
+
+
+Lect/escritores sobre Ricart-agrawala
+
+Probar tests que funciona
+- múltiples lectores pueden acceder a la sc
+- un escritor puede acceder a la SC
+- usar GO Vector
+- log de cada proceso y luego log global con un GO vector -> Shiviz
+
+- RA evento de envío de request

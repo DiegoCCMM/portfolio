@@ -1,0 +1,36 @@
+El objetivo de esta práctica es simplemente que os familiaricéis con el entorno de programación de Matlab/Octave y facilitar el desarrollo de las prácticas posteriores.
+
+Matlab es un entorno de programación que usa un lenguaje de programación de alto nivel. Es interpretado y tiene tipado dinámico. Permite el uso de distintos paragidmas (imperativo, objeto y funcional) asi como programación por eventos. En las prácticas utilizaremos mayormente programación imperativa, aunque cuando sea posible teneis la libertad para utilizar el tipo de programación que queráis.
+
+Matlab es particularmente bueno para realizar prototipado y desarrollo de algoritmos que requieran cálculos numéricos y en particular aquellos que involucran matrices y álgebra lineal. Tiene un montón de librerías (toolboxes) que implementan muchas de las cosas que vais a ver en el curso y podéis utilizarlas fácilmente para verificar, comprender y probar los conceptos e ideas de teoría.
+
+La práctica 0 no se evalúa. Consiste básicamente en utilizar Matlab, aprender su sintaxis (muy similar a lenguajes que ya habéis utilizado) y sus particularidades (calculo matricial). 
+
+Para ello os recomiendo seguir un tutorial de Matlab. Existen varios disponibles en la web. Uno de ellos es:
+
+http://ubcmatlabguide.github.io/
+
+Podéis elegid cualquiera pero vamos a utilizar el que acabo de nombrar para seleccionar que temas deberíais conocer obligatoriamente y cuales sería recomendable. 
+
+Basics
+
+    Getting started
+    Matrix operations     (Imprescindible!)
+    Functions        (Imprescindible la primera mitad. Opcional la segunda)
+    Flow of control    (Imprescindible!)
+    Data structures     (Structs, Strings y celdas)
+    File system issues  (No es necesario)
+    Plotting        (Imprescindible las básicas)
+    Octave vs Matlab      (para aquellos que usen Octave)
+
+Intermediate
+
+    Speedup tricks    (Vectorization)
+    More plotting    (3D plotting)
+    Debugging        (Bueno para depurar vuestro código, pero no imprescindible)
+    Programming style guidelines  (obligatorio seguirlo en las prácticas!)
+    Object oriented programming      (No se va a usar)
+
+Advanced (No se va a usar)
+
+Seguid cualquiera de los tutoriales para conocer y manejar al menos las partes imprescindibles. La mayor parte de los conceptos los conocéis y es simplemente una cuestión de habituarse. Si no se hace esta práctica, corréis el riesgo de pasarlo mal en alguna práctica por cuestiones del lenguaje. Os recomiendo que utilicéis el tiempo necesario para saber programar en Matlab. Os facilitara el resto de la asignatura.

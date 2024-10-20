@@ -1,0 +1,4 @@
+/home/diego/Desktop/PSCD/trabajo/LindaServer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/diego/Desktop/PSCD/trabajo/LindaServer/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/diego/Desktop/PSCD/trabajo/LindaServer/cmake-build-debug/CMakeFiles/LindaServer.dir
+/home/diego/Desktop/PSCD/trabajo/LindaServer/cmake-build-debug/CMakeFiles/clienteCarga.dir
