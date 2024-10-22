@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel
 from cocktail_model import Cocktail
@@ -19,10 +19,21 @@ async def get_cocktails():
         raise HTTPException(status_code=404, detail="No cocktails found")
     return cocktails
 
-# Buscar cóctel por nombre
-@app.get("/cocktails/{name}", response_model=list[Cocktail])
-async def search_cocktail(name: str):
-    cocktails = await cocktails_collection.find({"strDrink": {"$regex": name, "$options": "i"}}).to_list(1000)
+
+# Buscar por campos
+@app.get("/cocktails/search", response_model=list[Cocktail])
+async def get_cocktails(name: str = Query(...), alcoholic: bool = Query(...)):
+    # Definir el filtro basado en el parámetro alcoholic
+    alcoholic_value = "Alcoholic" if alcoholic else "Non_Alcoholic"
+    
+    cocktails = await cocktails_collection.find(
+        {"$and": [
+            { "strAlcoholic": alcoholic_value },
+            { "strDrink": name }
+        ]
+        }).to_list(1000)
+    
     if not cocktails:
         raise HTTPException(status_code=404, detail="No cocktails found")
+    
     return cocktails

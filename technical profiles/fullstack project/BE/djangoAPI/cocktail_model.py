@@ -1,3 +1,4 @@
+from pydantic import BaseModel
 # Modelo para los datos del cóctel
 class Cocktail(BaseModel):
     idDrink: str
