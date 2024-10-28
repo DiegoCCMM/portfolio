@@ -1,6 +1,17 @@
 # json type data
 *.json
 
+# Ignorar archivos compilados de Python
+**/__pycache__/
+*.pyc
+
+# Ignorar configuraciones de Visual Studio Code
+FE/cocktail-app/.vscode/
+
+# Ignorar el archivo .gitignore en cocktail-app
+FE/cocktail-app/.gitignore
+
+
 technical profiles/fullstack project/BE/backend/
 technical profiles/fullstack project/BE/djangoAPI/djangoAPI
 technical profiles/fullstack project/BE/djangoAPI/__pycache__/*.pyc
