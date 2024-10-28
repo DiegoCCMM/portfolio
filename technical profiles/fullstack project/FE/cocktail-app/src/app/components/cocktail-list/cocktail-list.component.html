@@ -1,0 +1,18 @@
+<div class="cocktail-list">
+  <h2>Lista de Cócteles</h2>
+  
+  <ng-container *ngIf="cocktails$ | async as cocktails; else loading">
+    <ul>
+      <li *ngFor="let cocktail of cocktails">
+        <h3>{{ cocktail.strDrink }}</h3>
+        <img *ngIf="cocktail.strDrinkThumb" [src]="cocktail.strDrinkThumb" alt="{{ cocktail.strDrink }}"/>
+        <p><strong>Tipo:</strong> {{ cocktail.strAlcoholic }}</p>
+        <p><strong>Instrucciones:</strong> {{ cocktail.strInstructions }}</p>
+      </li>
+    </ul>
+  </ng-container>
+
+  <ng-template #loading>
+    <p>Cargando cócteles...</p>
+  </ng-template>
+</div>
