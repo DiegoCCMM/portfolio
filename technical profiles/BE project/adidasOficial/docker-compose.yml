@@ -1,0 +1,37 @@
+version: "3.5"
+
+services:
+  public-service:
+    image: localhost/adidas-be-challenge-publicservice:latest
+    container_name: adidas-be-challenge-publicservice
+    build:
+      context: public-service
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    links:
+      - "priority-sale-service"
+
+  priority-sale-service:
+    image: localhost/adidas-be-challenge-prioritysaleservice:latest
+    container_name: adidas-be-challenge-prioritysaleservice
+    build:
+      context: priority-sale-service
+      dockerfile: Dockerfile
+    links:
+      - "adi-club-service"
+      - "email-service"
+
+  adi-club-service:
+    image: localhost/adidas-be-challenge-adiclubservice:latest
+    container_name: adidas-be-challenge-adiclubservice
+    build:
+      context: adiclub-service
+      dockerfile: Dockerfile
+
+  email-service:
+    image: localhost/adidas-be-challenge-emailservice:latest
+    container_name: adidas-be-challenge-emailservice
+    build:
+      context: email-service
+      dockerfile: Dockerfile

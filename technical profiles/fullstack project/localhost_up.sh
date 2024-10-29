@@ -16,6 +16,7 @@ sudo systemctl is-active --quiet mongodb.service || sudo systemctl start mongodb
 source ./BE/backend/bin/activate
 python ./BE/djangoAPI/run_fastapi.py > backend.log 2>&1 &
 backend_pid=$!
+
 # Show BE outputs in current terminal
 tail -f backend.log &
 tail_pid=$!
