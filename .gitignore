@@ -1,3 +1,7 @@
+## AREA DATA FILES
+technical profiles/data project/*.pdf
+
+
 # json type data
 *.json
 

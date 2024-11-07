@@ -27,20 +27,11 @@ public class PrioritySaleMainLogic {
     private Timer timer = new Timer();
                                                         //adi-club-service
     private static final String adiClubService = "http://localhost:8080/adiclub";
+    private static final String emailServiceUrl = "http://localhost:8083/email-service/send"; // URL del otro microservicio
     private static final HttpClient client = HttpClient.newHttpClient();
 
-
-    public PriorityQueue<Client> getAllClients() {
-        timer.schedule(new MyTask(), 0, 60*1000);
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            AdiClubClient adiClubClient = objectMapper.readValue(client.send(request,
-                    HttpResponse.BodyHandlers.ofString()).body(), AdiClubClient.class);
-            hp.orderStreamedList(adiClubClient);
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return hp.getMaxHeap();
+    public PrioritySaleMainLogic() {
+        timer.schedule(new MyTask(), 0, 10 * 1000);
     }
 
     public PriorityQueue<Client> addClient(String emailAddress) {
@@ -73,10 +64,35 @@ public class PrioritySaleMainLogic {
         return hp.getMaxHeap(); 
     }
     
-}
-class MyTask extends TimerTask {
-    public void run() {
-        // TODO: pop from heap then call email
-        System.out.println("Function called!");
+
+    class MyTask extends TimerTask {
+        public void run() {
+            System.out.println("Entered");
+            
+            Client winner = hp.pop();
+            winner = new Client("diego@gmail.com");
+            if (winner != null) {
+                try {
+                    System.out.println("Request");
+                    HttpRequest request = HttpRequest.newBuilder()
+                            .uri(new URI(emailServiceUrl))
+                            .header("Content-Type", "application/json")
+                            .POST(HttpRequest.BodyPublishers.ofString("\"" + winner.getEmail() + "\"")) // Enviar sólo el email como String
+                            .build();
+
+                    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+                    if (response.statusCode() == 200) {
+                        System.out.println("Email enviado a " + winner.getEmail());
+                    } else {
+                        System.err.println("Error al enviar email: " + response.statusCode() + " - " + response.body());
+                    }
+                } catch (IOException | InterruptedException | URISyntaxException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Heap vacío, no se encontraron usuarios para procesar.");
+            }
+        }
     }
 }

@@ -12,7 +12,17 @@
 	<name>public-service</name>
 	<description>Public Service</description>
 
+	<properties>
+		<spring-boot.run.arguments>--server.port=8084</spring-boot.run.arguments>
+	</properties>
+
 	<dependencies>
+		<!-- Dependencia para Apache HttpComponents -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.13</version> <!-- O la última versión disponible -->
+		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>

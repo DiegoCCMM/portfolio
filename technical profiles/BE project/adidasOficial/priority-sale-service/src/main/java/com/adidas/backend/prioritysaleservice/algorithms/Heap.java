@@ -14,6 +14,10 @@ public class Heap {
     //it uses the current logic to create a MIN heap, for readability its reversed on use.
     private PriorityQueue<Client> maxHeap = new PriorityQueue<Client>(cmp.reversed());
 
+    public Client pop() {
+        return maxHeap.poll();
+    }
+
     public PriorityQueue<Client> getMaxHeap() {
         return maxHeap;
     }

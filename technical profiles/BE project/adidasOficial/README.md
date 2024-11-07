@@ -73,6 +73,7 @@ The code requires the following tools:
 
 | **Purpose**                                | **Command**                                          |
 |--------------------------------------------|-------------------------------------------------------|
+| Test microservice (in microservice folder) | ```mvn spring-boot:run```                             |
 | Build jar files                            | ```mvn clean install```                                    |
 | Build docker images & start the containers | ```docker-compose up -d```                                  |
 | Cleanup project (docker compose)           | ```docker-compose down --rmi```                             |
