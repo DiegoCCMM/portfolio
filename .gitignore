@@ -1,6 +1,16 @@
 ## AREA DATA FILES
 technical profiles/data project/*.pdf
 
+"technical profiles/data project/embeddings/"
+
+"technical profiles/data project/chromadb/"
+
+technical profiles/data project/chromadb/
+technical profiles/data project/chromadb_storage/
+technical profiles/data project/embeddings/
+technical profiles/data project/test_embeddings.log
+technical profiles/data project/token-hugging-face.txt
+
 
 # json type data
 *.json
