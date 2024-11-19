@@ -12,9 +12,9 @@
 	<name>public-service</name>
 	<description>Public Service</description>
 
-	<properties>
-		<spring-boot.run.arguments>--server.port=8084</spring-boot.run.arguments>
-	</properties>
+	<!--<properties>
+		<spring-boot.run.arguments>-borrar-server.port=8084</spring-boot.run.arguments>
+	</properties>-->
 
 	<dependencies>
 		<!-- Dependencia para Apache HttpComponents -->

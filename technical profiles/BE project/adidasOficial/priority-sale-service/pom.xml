@@ -12,9 +12,9 @@
 	<name>priority-sale-service</name>
 	<description>Priority Sale Service</description>
 
-	<properties>
-		<spring-boot.run.arguments>--server.port=8081</spring-boot.run.arguments>
-	</properties>
+	<!--<properties>
+		<spring-boot.run.arguments>-borrar-server.port=8081</spring-boot.run.arguments>
+	</properties>-->
 
 	<dependencies>
 		<!-- Dependencia para Apache HttpComponents -->

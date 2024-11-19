@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -18,8 +17,8 @@ import java.net.http.HttpResponse;
 @RestController
 @RequestMapping(value = "/public")
 public class PublicRestController {
-                                                            //priority-sale-service
-    private static final String prioritySaleService = "http://localhost:8081/priority-sale/addClient";
+                                                            //
+    private static final String prioritySaleService = "http://priority-sale-service:8080/priority-sale/addClient";
     private static final HttpClient client = HttpClient.newHttpClient();
 
     @PostMapping("/addClient")

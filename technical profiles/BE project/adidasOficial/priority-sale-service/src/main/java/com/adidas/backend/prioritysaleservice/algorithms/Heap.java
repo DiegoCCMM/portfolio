@@ -26,4 +26,18 @@ public class Heap {
         maxHeap.add(c);
         return maxHeap;
     }
+
+    public boolean isEmpty() {
+        return maxHeap.isEmpty();
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Heap contains:\n");
+        for (Client client : maxHeap) {
+            sb.append(client.toString()).append("\n");
+        }
+        return sb.toString();
+    }
 }

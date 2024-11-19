@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.client.utils.URIBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
 import java.net.URI;
@@ -19,18 +18,22 @@ import java.util.PriorityQueue;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.annotation.PostConstruct;
+
 @Component
 public class PrioritySaleMainLogic {
     @Autowired
-    private Heap hp = new Heap();
+    private Heap hp;
 
-    private Timer timer = new Timer();
-                                                        //adi-club-service
-    private static final String adiClubService = "http://localhost:8080/adiclub";
-    private static final String emailServiceUrl = "http://localhost:8083/email-service/send"; // URL del otro microservicio
+    private Timer timer;
+                                                        
+    private static final String adiClubService = "http://adi-club-service:8080/adiclub";
+    private static final String emailServiceUrl = "http://email-service:8080/email-service/send";
     private static final HttpClient client = HttpClient.newHttpClient();
 
-    public PrioritySaleMainLogic() {
+    @PostConstruct
+    public void init() {
+        timer = new Timer();
         timer.schedule(new MyTask(), 0, 10 * 1000);
     }
 
@@ -53,7 +56,7 @@ public class PrioritySaleMainLogic {
                 AdiClubClient newClient = objectMapper.readValue(response.body(), AdiClubClient.class);
 
                 hp.orderStreamedList(newClient); 
-                
+                System.out.println("La pila queda: " + hp.toString());
                 return hp.getMaxHeap();
             } else {
                 System.err.println("Error: " + response.statusCode() + " - " + response.body());
@@ -66,33 +69,33 @@ public class PrioritySaleMainLogic {
     
 
     class MyTask extends TimerTask {
-        public void run() {
-            System.out.println("Entered");
-            
-            Client winner = hp.pop();
-            winner = new Client("diego@gmail.com");
-            if (winner != null) {
-                try {
-                    System.out.println("Request");
-                    HttpRequest request = HttpRequest.newBuilder()
-                            .uri(new URI(emailServiceUrl))
-                            .header("Content-Type", "application/json")
-                            .POST(HttpRequest.BodyPublishers.ofString("\"" + winner.getEmail() + "\"")) // Enviar sólo el email como String
-                            .build();
-
-                    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-                    if (response.statusCode() == 200) {
-                        System.out.println("Email enviado a " + winner.getEmail());
-                    } else {
-                        System.err.println("Error al enviar email: " + response.statusCode() + " - " + response.body());
-                    }
-                } catch (IOException | InterruptedException | URISyntaxException e) {
-                    e.printStackTrace();
+        public void run() {            
+            try {
+                if (hp.isEmpty()) {
+                    System.out.println("Heap vacío, no se encontraron usuarios para procesar.");
+                    return;
                 }
-            } else {
-                System.out.println("Heap vacío, no se encontraron usuarios para procesar.");
+
+            
+                Client winner = hp.pop();
+            
+                HttpRequest request = HttpRequest.newBuilder()
+                        .uri(new URI(emailServiceUrl))
+                        .header("Content-Type", "application/json")
+                        .POST(HttpRequest.BodyPublishers.ofString("\"" + winner.getEmail() + "\"")) // Enviar sólo el email como String
+                        .build();
+
+                HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+                if (response.statusCode() == 200) {
+                    System.out.println("Email enviado a " + winner.getEmail());
+                } else {
+                    System.err.println("Error al enviar email: " + response.statusCode() + " - " + response.body());
+                }
+            } catch (IOException | InterruptedException | URISyntaxException | NullPointerException e) {
+                e.printStackTrace();
             }
+        
         }
     }
 }
