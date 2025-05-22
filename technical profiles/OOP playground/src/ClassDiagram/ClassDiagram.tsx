@@ -3,52 +3,30 @@ import ReactFlow, {
   Background,
   Controls,
   MarkerType,
+  Position
 } from "reactflow";
 import type {Edge, Node} from "reactflow";
 import "reactflow/dist/style.css";
+import ClassDiagramView from "./view/ClassDiagramView";
+import ComputeNodePositions from "./utils/ComputeNodePositions";
 
 type Props = {
   classes: UMLClass[];
 };
 
 export default function ClassDiagram({ classes }: Props) {
-  const nodes: Node[] = classes.map((cls, index) => ({
+  const nodes: Node[] = classes.map((cls) => ({
     id: cls.className,
     data: {
       label: (
-        <div
-          style={{
-            border: "2px solid #aaa",
-            borderRadius: "8px",
-            width: "200px",
-            backgroundColor: "#f9f9f9",
-            fontFamily: "monospace",
-            overflow: "hidden"
-          }}
-        >
-          <div
-            style={{
-              backgroundColor: "#444",
-              color: "white",
-              padding: "0.5rem",
-              fontWeight: "bold"
-            }}
-          >
-            {cls.className}
-          </div>
-          <div style={{ padding: "0.5rem", color: "#000" }}>
-            {cls.fields.length > 0 ? (
-              cls.fields.map((field, idx) => <div key={idx}>{field}</div>)
-            ) : (
-              <div style={{ color: "#aaa" }}>(no fields)</div>
-            )}
-          </div>
-        </div>
+        <ClassDiagramView className={cls.className} fields={cls.fields} />
       )
     },
-    position: { x: 100 + index * 300, y: 100 },
+    position: ComputeNodePositions(classes).get(cls.className) || { x: 0, y: 0 },
     style: { width: 200 },
-    type: "default"
+    type: "default",
+    sourcePosition: Position.Top,
+    targetPosition: Position.Bottom
   }));
 
   const edges: Edge[] = classes
@@ -57,15 +35,19 @@ export default function ClassDiagram({ classes }: Props) {
       id: `${cls.className}->${cls.parentClass}`,
       source: cls.className,
       target: cls.parentClass!,
+      type: "smoothstep",
       label: "extends",
       markerEnd: {
         type: MarkerType.ArrowClosed
       },
       style: {
-        stroke: "#222",
+        stroke: "#ccc",
         strokeWidth: 2
       }
     }));
+    
+    console.log("nodes", nodes);
+    console.log("edges", edges);
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
